@@ -64,5 +64,10 @@ public class GuavaExample {
         public void emptyToNull() {
             assertThat(Strings.emptyToNull(""), is(nullValue()));
         }
+        
+        @Test
+        public void nullToEmpty() {
+            assertThat(Strings.nullToEmpty(null), is(""));
+        }
     }
 }
