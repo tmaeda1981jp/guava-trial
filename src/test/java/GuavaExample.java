@@ -50,5 +50,12 @@ public class GuavaExample {
             String notEmptyStr = "hello";
             assertThat(Strings.isNullOrEmpty(notEmptyStr), is(false));
         }
+        
+        @Test
+        public void repeat() {
+            String actual = Strings.repeat("=", 3);
+            String expected = "===";
+            assertThat(actual, is(expected));
+        }
     }
 }
