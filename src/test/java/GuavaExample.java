@@ -76,5 +76,12 @@ public class GuavaExample {
             String b = "bbb.txt";
             assertThat(Strings.commonSuffix(a, b), is(".txt"));
         }
+        
+        @Test
+        public void commonPrefix() {
+            String a = "test.py";
+            String b = "test.rb";
+            assertThat(Strings.commonPrefix(a, b), is("test."));
+        }
     }
 }
