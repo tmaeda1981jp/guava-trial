@@ -69,5 +69,12 @@ public class GuavaExample {
         public void nullToEmpty() {
             assertThat(Strings.nullToEmpty(null), is(""));
         }
+        
+        @Test
+        public void commonSuffix() {
+            String a = "aaa.txt";
+            String b = "bbb.txt";
+            assertThat(Strings.commonSuffix(a, b), is(".txt"));
+        }
     }
 }
