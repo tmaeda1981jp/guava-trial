@@ -37,5 +37,18 @@ public class GuavaExample {
         }        
     }
     
-
+    public static class StringsTest {
+        
+        @Test
+        public void isNullOrEmpty() {
+            String nullStr = null;
+            assertThat(Strings.isNullOrEmpty(nullStr), is(true));
+            
+            String emptyStr = "";
+            assertThat(Strings.isNullOrEmpty(emptyStr), is(true));
+            
+            String notEmptyStr = "hello";
+            assertThat(Strings.isNullOrEmpty(notEmptyStr), is(false));
+        }
+    }
 }
