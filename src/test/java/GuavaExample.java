@@ -1,8 +1,10 @@
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.*;
 
+import org.hamcrest.core.*;
 import org.junit.*;
 import org.junit.experimental.runners.*;
 import org.junit.runner.*;
@@ -56,6 +58,11 @@ public class GuavaExample {
             String actual = Strings.repeat("=", 3);
             String expected = "===";
             assertThat(actual, is(expected));
+        }
+        
+        @Test
+        public void emptyToNull() {
+            assertThat(Strings.emptyToNull(""), is(nullValue()));
         }
     }
 }
