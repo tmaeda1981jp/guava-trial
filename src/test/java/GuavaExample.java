@@ -83,5 +83,19 @@ public class GuavaExample {
             String b = "test.rb";
             assertThat(Strings.commonPrefix(a, b), is("test."));
         }
+        
+        @Test
+        public void padEnd() {
+            String actual = Strings.padEnd("123", 5, '0');
+            String expected = "12300";
+            assertThat(actual, is(expected));
+        }
+        
+        @Test
+        public void padStart() {
+            String actual = Strings.padStart("xxxx", 10, '_');
+            String expected = "______xxxx";
+            assertThat(actual, is(expected));
+        }
     }
 }
