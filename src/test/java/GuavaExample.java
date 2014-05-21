@@ -4,12 +4,13 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.*;
 
-import org.hamcrest.core.*;
 import org.junit.*;
 import org.junit.experimental.runners.*;
 import org.junit.runner.*;
 
 import com.google.common.base.*;
+import com.google.common.escape.*;
+import com.google.common.html.*;
 
 @RunWith(Enclosed.class)
 public class GuavaExample {
@@ -96,6 +97,47 @@ public class GuavaExample {
             String actual = Strings.padStart("xxxx", 10, '_');
             String expected = "______xxxx";
             assertThat(actual, is(expected));
+        }
+    }
+    
+    public static class HtmlEscapersTest {
+        
+        private Escaper escaper = HtmlEscapers.htmlEscaper();
+        
+        @Test
+        public void ampersand() {
+            String actual = escaper.escape("&");
+            String expected = "&amp;";
+            assertThat(actual, is(expected));
+        }
+        
+        @Test
+        public void lessThan() {
+            String actual = escaper.escape("<");
+            String expected = "&lt;";
+            assertThat(actual, is(expected));
+        }
+        
+        @Test
+        public void greaterThan() {
+            String actual = escaper.escape(">");
+            String expected = "&gt;";
+            assertThat(actual, is(expected)); 
+        }
+        
+        @Test
+        public void quote() {
+            String actual = escaper.escape("\'");
+            String expected = "&#39;";
+            assertThat(actual, is(expected));
+        }
+        
+        @Test
+        public void wquote() {
+            String actual = escaper.escape("\"");
+            String expected = "&quot;";
+            assertThat(actual, is(expected));
+            
         }
     }
 }
