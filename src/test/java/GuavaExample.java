@@ -37,7 +37,18 @@ public class GuavaExample {
                     .iterator();
             assertThat(actual.next(), is("a"));
             assertThat(actual.next(), is("b"));
-        }        
+        }
+        
+        @Test
+        public void splitToList() {
+            List<String> actual = Splitter.on(',').splitToList("a,b,c,d,e");
+            assertThat(actual.size(), is(5));
+            assertThat(actual.get(0), is("a"));
+            assertThat(actual.get(1), is("b"));
+            assertThat(actual.get(2), is("c"));
+            assertThat(actual.get(3), is("d"));
+            assertThat(actual.get(4), is("e"));
+        }
     }
     
     public static class StringsTest {
