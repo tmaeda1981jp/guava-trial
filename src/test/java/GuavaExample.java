@@ -180,6 +180,19 @@ public class GuavaExample {
             assertThat(actual[5], is(array2[2]));
             assertThat(actual[6], is(array2[3]));
         }
+        
+        @Test
+        public void toArray() {
+            List<Integer> intList = new ArrayList<>();
+            intList.add(10);
+            intList.add(20);
+            intList.add(30);
+            int[] actual = Ints.toArray(intList);
+            assertThat(actual.length, is(3));
+            assertThat(actual[0], is(10));
+            assertThat(actual[1], is(20));
+            assertThat(actual[2], is(30));
+        }
     }
     
     
