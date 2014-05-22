@@ -11,6 +11,7 @@ import org.junit.runner.*;
 import com.google.common.base.*;
 import com.google.common.escape.*;
 import com.google.common.html.*;
+import com.google.common.primitives.*;
 
 @RunWith(Enclosed.class)
 public class GuavaExample {
@@ -151,4 +152,19 @@ public class GuavaExample {
             
         }
     }
+    
+    public static class IntsTest {
+        @Test
+        public void asList() {
+            List<Integer> actual = Ints.asList(1,3,5,7,9);
+            assertThat(actual.size(), is(5));
+            assertThat(actual.get(0), is(1));
+            assertThat(actual.get(1), is(3));
+            assertThat(actual.get(2), is(5));
+            assertThat(actual.get(3), is(7));
+            assertThat(actual.get(4), is(9));
+        }
+    }
+    
+    
 }
