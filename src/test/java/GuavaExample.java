@@ -154,6 +154,7 @@ public class GuavaExample {
     }
     
     public static class IntsTest {
+        
         @Test
         public void asList() {
             List<Integer> actual = Ints.asList(1,3,5,7,9);
@@ -163,6 +164,21 @@ public class GuavaExample {
             assertThat(actual.get(2), is(5));
             assertThat(actual.get(3), is(7));
             assertThat(actual.get(4), is(9));
+        }
+        
+        @Test
+        public void concat() {
+            int[] array1 = new int[]{1,2,3};
+            int[] array2 = new int[]{4,5,6,7};
+            int[] actual = Ints.concat(array1, array2);
+            assertThat(actual.length, is(array1.length + array2.length));
+            assertThat(actual[0], is(array1[0]));
+            assertThat(actual[1], is(array1[1]));
+            assertThat(actual[2], is(array1[2]));
+            assertThat(actual[3], is(array2[0]));
+            assertThat(actual[4], is(array2[1]));
+            assertThat(actual[5], is(array2[2]));
+            assertThat(actual[6], is(array2[3]));
         }
     }
     
