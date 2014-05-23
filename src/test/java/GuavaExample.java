@@ -193,6 +193,16 @@ public class GuavaExample {
             assertThat(actual[1], is(20));
             assertThat(actual[2], is(30));
         }
+        
+        @Test
+        public void min(){
+            assertThat(Ints.min(10, 3, 3, 65, 34), is(3));
+        }
+        
+        @Test
+        public void max() {
+            assertThat(Ints.max(1, 3, 4, 9384, 343), is(9384));
+        }
     }
     
     
