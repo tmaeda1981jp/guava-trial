@@ -219,5 +219,10 @@ public class GuavaExample {
             List<String> list = ImmutableList.of("foo", "baa", "baz");
             list.remove(0);
         }
+        
+        @Test(expected=NullPointerException.class)
+        public void of_doesNotPermitNull() {
+            ImmutableList.of("foo", "baa", "baz", null);
+        }
     }
 }
