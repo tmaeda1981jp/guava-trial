@@ -9,6 +9,7 @@ import org.junit.experimental.runners.*;
 import org.junit.runner.*;
 
 import com.google.common.base.*;
+import com.google.common.collect.*;
 import com.google.common.escape.*;
 import com.google.common.html.*;
 import com.google.common.primitives.*;
@@ -205,5 +206,18 @@ public class GuavaExample {
         }
     }
     
-    
+    public static class ImmutableListTest {
+        
+        @Test(expected=UnsupportedOperationException.class)
+        public void add() {
+            List<String> list = ImmutableList.of("foo", "baa", "baz");
+            list.add("hoge");
+        }
+        
+        @Test(expected=UnsupportedOperationException.class)
+        public void remove() {
+            List<String> list = ImmutableList.of("foo", "baa", "baz");
+            list.remove(0);
+        }
+    }
 }
