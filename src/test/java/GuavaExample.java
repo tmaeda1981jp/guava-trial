@@ -217,6 +217,12 @@ public class GuavaExample {
         }
         
         @Test(expected=UnsupportedOperationException.class)
+        public void addAll() {
+            List<String> list = ImmutableList.of("foo", "baa", "baz");
+            list.addAll(Arrays.asList("hoge", "fuga"));
+        }
+        
+        @Test(expected=UnsupportedOperationException.class)
         public void remove() {
             List<String> list = ImmutableList.of("foo", "baa", "baz");
             list.remove(0);
