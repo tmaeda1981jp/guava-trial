@@ -1,5 +1,7 @@
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.nullValue;
+import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.*;
@@ -223,6 +225,19 @@ public class GuavaExample {
         @Test(expected=NullPointerException.class)
         public void of_doesNotPermitNull() {
             ImmutableList.of("foo", "baa", "baz", null);
+        }
+        
+        @Test
+        public void copyOf () {
+            List<String> list = new ArrayList<>();
+            list.add("a");
+            list.add("b");
+            list.add("c");
+            List<String> copyList = ImmutableList.copyOf(list);
+            assertThat(list, is(not(sameInstance(copyList))));
+            assertThat(list.get(0), is(copyList.get(0)));
+            assertThat(list.get(1), is(copyList.get(1)));
+            assertThat(list.get(2), is(copyList.get(2)));
         }
     }
 }
