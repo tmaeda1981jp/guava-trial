@@ -246,4 +246,21 @@ public class GuavaExample {
             assertThat(list.get(2), is(copyList.get(2)));
         }
     }
+    
+    public static class ListsTest {
+     
+        @Test
+        public void newArrayList() {
+            List<String> actual = Lists.newArrayList();
+            assertThat(actual, is(not(nullValue())));
+            assertThat(actual.size(), is(0));
+        }
+        
+        @Test
+        public void newArrayList_withArgs() {
+            List<String> actual = Lists.newArrayList("hoge", "fuga");
+            assertThat(actual, is(not(nullValue())));
+            assertThat(actual.size(), is(2));
+        }
+    }
 }
