@@ -262,5 +262,15 @@ public class GuavaExample {
             assertThat(actual, is(not(nullValue())));
             assertThat(actual.size(), is(2));
         }
+        
+        @Test
+        public void reverse() {
+            List<String> list = Lists.newArrayList("one", "two", "three");
+            List<String> actual = Lists.reverse(list);
+            assertThat(actual.size(), is(3));
+            assertThat(actual.get(0), is("three"));
+            assertThat(actual.get(1), is("two"));
+            assertThat(actual.get(2), is("one"));
+        }
     }
 }
