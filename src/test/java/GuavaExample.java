@@ -272,5 +272,20 @@ public class GuavaExample {
             assertThat(actual.get(1), is("two"));
             assertThat(actual.get(2), is("one"));
         }
+        
+        @Test
+        public void transorm() {
+            List<String> strList = Lists.newArrayList("1", "2", "3");
+            List<Integer> actual = Lists.transform(strList, new Function<String, Integer>() {
+                @Override
+                public Integer apply(String input) {
+                    return Integer.parseInt(input);
+                }
+            });
+            assertThat(actual.size(), is(3));
+            assertThat(actual.get(0), is(1));
+            assertThat(actual.get(1), is(2));
+            assertThat(actual.get(2), is(3));
+        }
     }
 }
