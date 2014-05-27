@@ -288,4 +288,26 @@ public class GuavaExample {
             assertThat(actual.get(2), is(3));
         }
     }
+    
+    public static class HashMultisetTest {
+        
+        @Test
+        public void equals() {
+            HashMultiset<String> multiset1 = HashMultiset.create();
+            multiset1.add("hoge");
+            multiset1.add("hoge");
+            multiset1.add("fuga");
+            
+            HashMultiset<String> multiset2 = HashMultiset.create();
+            multiset2.add("hoge");
+            multiset2.add("fuga");
+            multiset2.add("hoge");
+            
+            assertThat(multiset1 == multiset2, is(false));
+            assertThat(multiset1.equals(multiset2), is(true));
+        }
+        
+
+        
+    }
 }
