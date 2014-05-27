@@ -307,7 +307,16 @@ public class GuavaExample {
             assertThat(multiset1.equals(multiset2), is(true));
         }
         
-
+        @Test
+        public void count() {
+            HashMultiset<String> multiset = HashMultiset.create();
+            multiset.add("hoge");
+            multiset.add("hoge");
+            multiset.add("fuga");
+            
+            assertThat(multiset.count("hoge"), is(2));
+            assertThat(multiset.count("fuga"), is(1));
+        }
         
     }
 }
