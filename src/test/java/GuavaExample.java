@@ -369,5 +369,15 @@ public class GuavaExample {
             assertThat(actual.get("row1"), is("row1-2"));
             assertThat(actual.get("row2"), is("row2-2"));
         }
+        
+        @Test
+        public void columnKeySet() {
+            Set<Integer> actual = table.columnKeySet();
+            assertThat(actual.size(), is(3));
+            assertThat(actual.contains(1), is(true));
+            assertThat(actual.contains(2), is(true));
+            assertThat(actual.contains(3), is(true));
+            assertThat(actual.contains(4), is(false));
+        }
     }
 }
