@@ -361,5 +361,13 @@ public class GuavaExample {
             table.clear();
             assertThat(table.size(), is(0));
         }
+        
+        @Test
+        public void column() {
+            Map<String, String> actual = table.column(2);
+            assertThat(actual.size(), is(2));
+            assertThat(actual.get("row1"), is("row1-2"));
+            assertThat(actual.get("row2"), is("row2-2"));
+        }
     }
 }
