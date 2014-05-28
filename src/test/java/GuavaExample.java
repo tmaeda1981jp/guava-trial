@@ -337,15 +337,26 @@ public class GuavaExample {
     
     public static class TableTest {
         
-        @Test
-        public void cellSet() {
-            Table<String, Integer, String> table = HashBasedTable.create();
+        private Table<String, Integer, String> table;
+        
+        @Before
+        public void setUp() {
+            table = HashBasedTable.create();
             table.put("row1", 1, "row1-1");
             table.put("row1", 2, "row1-2");
             table.put("row1", 3, "row1-3");
-            
+        }
+        
+        @Test
+        public void cellSet() {
             Set<Table.Cell<String, Integer, String>> actual = table.cellSet();
             assertThat(actual.size(), is(3));
+        }
+        
+        @Test
+        public void clear() {
+            table.clear();
+            assertThat(table.size(), is(0));
         }
     }
 }
