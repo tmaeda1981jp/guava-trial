@@ -345,12 +345,15 @@ public class GuavaExample {
             table.put("row1", 1, "row1-1");
             table.put("row1", 2, "row1-2");
             table.put("row1", 3, "row1-3");
+            table.put("row2", 1, "row2-1");
+            table.put("row2", 2, "row2-2");
+            table.put("row2", 3, "row2-3");
         }
         
         @Test
         public void cellSet() {
             Set<Table.Cell<String, Integer, String>> actual = table.cellSet();
-            assertThat(actual.size(), is(3));
+            assertThat(actual.size(), is(6));
         }
         
         @Test
