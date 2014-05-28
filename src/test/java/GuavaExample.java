@@ -5,6 +5,7 @@ import static org.hamcrest.CoreMatchers.sameInstance;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 import java.util.*;
+import java.util.stream.*;
 
 import org.junit.*;
 import org.junit.experimental.runners.*;
@@ -331,6 +332,20 @@ public class GuavaExample {
             assertThat(multiset.count("hoge"), is(4));
             assertThat(multiset.count("fuga"), is(3));
             assertThat(multiset.size(), is(7));
+        }
+    }
+    
+    public static class TableTest {
+        
+        @Test
+        public void cellSet() {
+            Table<String, Integer, String> table = HashBasedTable.create();
+            table.put("row1", 1, "row1-1");
+            table.put("row1", 2, "row1-2");
+            table.put("row1", 3, "row1-3");
+            
+            Set<Table.Cell<String, Integer, String>> actual = table.cellSet();
+            assertThat(actual.size(), is(3));
         }
     }
 }
