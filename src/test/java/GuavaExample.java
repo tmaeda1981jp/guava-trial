@@ -381,6 +381,15 @@ public class GuavaExample {
         }
         
         @Test
+        public void rowKeySet() {
+            Set<String> actual = table.rowKeySet();
+            assertThat(actual.size(), is(2));
+            assertThat(actual.contains("row1"), is(true));
+            assertThat(actual.contains("row2"), is(true));
+            assertThat(actual.contains("row3"), is(false));
+        }
+        
+        @Test
         public void columnMap() {
             Map<Integer, Map<String, String>> columnMap = table.columnMap();
             assertThat(columnMap.size(), is(3));
