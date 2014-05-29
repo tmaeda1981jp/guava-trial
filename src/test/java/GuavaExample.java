@@ -399,6 +399,16 @@ public class GuavaExample {
         }
         
         @Test
+        public void rowMap() {
+            Map<String, Map<Integer, String>> rowMap = table.rowMap();
+            assertThat(rowMap.size(), is(2));
+            assertThat(rowMap.get("row1").size(), is(3));
+            assertThat(rowMap.get("row1").get(1), is("row1-1"));
+            assertThat(rowMap.get("row1").get(2), is("row1-2"));
+            assertThat(rowMap.get("row1").get(3), is("row1-3"));
+        }
+        
+        @Test
         public void contains() {
             assertThat(table.contains("row1", 1), is(true));
             assertThat(table.contains("row5", 1), is(false));
