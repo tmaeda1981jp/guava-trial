@@ -379,5 +379,15 @@ public class GuavaExample {
             assertThat(actual.contains(3), is(true));
             assertThat(actual.contains(4), is(false));
         }
+        
+        @Test
+        public void columnMap() {
+            Map<Integer, Map<String, String>> columnMap = table.columnMap();
+            assertThat(columnMap.size(), is(3));
+            assertThat(columnMap.get(1).size(), is(2));
+            assertThat(columnMap.get(1).get("row1"), is("row1-1"));
+            assertThat(columnMap.get(1).get("row2"), is("row2-1"));
+            
+        }
     }
 }
