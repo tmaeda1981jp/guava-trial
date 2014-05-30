@@ -413,5 +413,12 @@ public class GuavaExample {
             assertThat(table.contains("row1", 1), is(true));
             assertThat(table.contains("row5", 1), is(false));
         }
+        
+        @Test
+        public void isEmpty() {
+            assertThat(table.isEmpty(), is(false));
+            table.clear();
+            assertThat(table.isEmpty(), is(true));
+        }
     }
 }
